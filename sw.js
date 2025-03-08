@@ -27,21 +27,21 @@ workbox.core.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-0e1a699e144f3db56609.js"
+    "url": "webpack-runtime-55fb1b1c4eaf4a8f5a14.js"
   },
   {
     "url": "framework-71b6de6ea1879fae17bb.js"
   },
   {
-    "url": "app-ac4d0c199b9e04315310.js"
+    "url": "app-d2a4ebe44c02298d88a0.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "8133ff9eb0dcd954a06404aa1486ebc8"
+    "revision": "5e310ced106823e16c12b18ac40428ca"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "8688a4ef6e6c48ce89c323e35b77122f"
+    "revision": "b9035f8c8778713ecfc06f43088907b7"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
@@ -146,12 +146,12 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
   lastNavigationRequest = event.request.url
 
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/kowshik-reddy.github.io`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/kowshik-reddy.github.io/app-ac4d0c199b9e04315310.js`))) {
+  if (!resources || !(await caches.match(`/app-d2a4ebe44c02298d88a0.js`))) {
     return await fetch(event.request)
   }
 
@@ -164,7 +164,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/kowshik-reddy.github.io/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   const offlineShellWithKey = workbox.precaching.getCacheKeyForURL(offlineShell)
   return await caches.match(offlineShellWithKey)
 })

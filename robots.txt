@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://kowshik-reddy.github.io/kowshik-reddy.github.io/sitemap/sitemap-index.xml
-Host: https://kowshik-reddy.github.io
+Sitemap: https://kowshikreddy97.github.io/sitemap/sitemap-index.xml
+Host: https://kowshikreddy97.github.io
